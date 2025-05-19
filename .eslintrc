@@ -1,0 +1,67 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "extends": ["prettier"],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "prettier/prettier": [
+      "off",
+      {
+        "usePrettierrc": true
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "comma-dangle": "off",
+    "use-isnan": ["off", { "enforceForSwitchCase": true }],
+    "react/void-dom-elements-no-children": "off",
+    "react/no-unsafe": "off",
+    "react/no-unused-state": "off",
+    "react/prefer-stateless-function": "off",
+    "react/self-closing-comp": "off",
+    "react/no-will-update-set-state": "off",
+    "react/no-this-in-sfc": "off",
+    "react/no-string-refs": "off",
+    "react/no-redundant-should-component-update": "off",
+    "react/jsx-boolean-value": ["off", "never"],
+    "react/jsx-key": "off",
+    "react/jsx-max-props-per-line": ["off", { "maximum": 7 }],
+    "react/jsx-max-depth": ["off", { "max": 8 }],
+    "arrow-body-style": ["off", "as-needed"],
+    "dot-notation": "off",
+    "jsx-quotes": ["off", "prefer-single"],
+    "valid-typeof": "off",
+    "@typescript-eslint/member-ordering": [
+      "off",
+      {
+        "default": [
+          "private-static-field",
+          "protected-static-field",
+          "public-static-field",
+          "private-static-method",
+          "protected-static-method",
+          "public-static-method",
+          "private-constructor",
+          "protected-constructor",
+          "public-constructor",
+          "private-instance-field",
+          "protected-instance-field",
+          "public-instance-field",
+          "private-instance-method",
+          "protected-instance-method",
+          "public-instance-method"
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
