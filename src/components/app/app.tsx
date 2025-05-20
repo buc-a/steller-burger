@@ -16,17 +16,24 @@ import { OrderInfo } from '../order-info/order-info';
 import { IngredientDetails } from '../ingredient-details/ingredient-details';
 import { AppHeader } from '@components';
 import { ProtectedRoute } from '../../components/protected-route/ptotected-route';
-
+import { useDispatch} from '../../services/store';
+import { getIngredientsThunk} from '../../slices/ingredientSlice';
+import { getUserThunk } from '../../slices/userSlice';
+import { getFeedsThunk} from '../../slices/feedsSlice'
 import store from '../../services/store';
 import { Provider } from 'react-redux';
 
-
+import { useEffect } from 'react';
 
 const App = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(getIngredientsThunk());
+    dispatch(getUserThunk());
+  }, [])
   return (
-      <Provider store={store}>
         
 
         <div className={styles.app}>
@@ -70,12 +77,12 @@ const App = () => {
             element={
               <ProtectedRoute forAuthorizedUser={true}>
                 <Modal title={''} onClose={() => {navigate(-1)}}>
-                  <IngredientDetails />
+                  <OrderInfo />
                 </Modal>
               </ProtectedRoute>} />      
         </Routes>
         </div>
-      </Provider>
+
 )}
 
 export default App;
