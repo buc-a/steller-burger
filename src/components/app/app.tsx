@@ -36,22 +36,22 @@ const App = () => {
           <Route path='/feed' element={<Feed />} />
           <Route
             path='/login'
-            element={<ProtectedRoute><Login /></ProtectedRoute>}/>
+            element={<ProtectedRoute forAuthorizedUser={false}><Login /></ProtectedRoute>}/>
           <Route
             path='/register'
-            element={<ProtectedRoute><Register /></ProtectedRoute>}/>
+            element={<ProtectedRoute forAuthorizedUser={false}><Register /></ProtectedRoute>}/>
           <Route
             path='/forgot-password'
-            element={<ProtectedRoute><ForgotPassword /></ProtectedRoute>}/>   
+            element={<ProtectedRoute forAuthorizedUser={false}><ForgotPassword /></ProtectedRoute>}/>   
           <Route
             path='/reset-password'
-            element={<ProtectedRoute><ResetPassword /></ProtectedRoute>}/>   
+            element={<ProtectedRoute forAuthorizedUser={false}><ResetPassword /></ProtectedRoute>}/>   
           <Route
             path='/profile'
-            element={<ProtectedRoute><Profile /></ProtectedRoute>}/>  
+            element={<ProtectedRoute forAuthorizedUser={true}><Profile /></ProtectedRoute>}/>  
           <Route
             path='/profile/orders'
-            element={<ProtectedRoute><ProfileOrders /></ProtectedRoute>}/>   
+            element={<ProtectedRoute forAuthorizedUser={true}><ProfileOrders /></ProtectedRoute>}/>   
           <Route path='*' element={<NotFound404 />} />
           <Route 
             path='/feed/:number'
@@ -68,7 +68,7 @@ const App = () => {
           <Route 
             path='/profile/orders/:number'
             element={
-              <ProtectedRoute>
+              <ProtectedRoute forAuthorizedUser={true}>
                 <Modal title={''} onClose={() => {navigate(-1)}}>
                   <IngredientDetails />
                 </Modal>
