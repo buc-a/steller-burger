@@ -75,7 +75,10 @@ export const getIngredientsApi = () =>
   fetch(`${URL}/ingredients`)
     .then((res) => checkResponse<TIngredientsResponse>(res))
     .then((data) => {
-      if (data?.success) return data.data;
+      if (data?.success) {
+        console.log(`${URL}/ingredients`)
+        return data.data;
+      }
       return Promise.reject(data);
     });
 
@@ -83,7 +86,10 @@ export const getFeedsApi = () =>
   fetch(`${URL}/orders/all`)
     .then((res) => checkResponse<TFeedsResponse>(res))
     .then((data) => {
-      if (data?.success) return data;
+      if (data?.success) {
+        console.log(`${URL}/orders/all`)
+        return data;
+      }
       return Promise.reject(data);
     });
 
@@ -95,7 +101,10 @@ export const getOrdersApi = () =>
       authorization: getCookie('accessToken')
     } as HeadersInit
   }).then((data) => {
-    if (data?.success) return data.orders;
+        if (data?.success) {
+          console.log(`${URL}/orders`)
+          return data.orders;
+      }
     return Promise.reject(data);
   });
 
