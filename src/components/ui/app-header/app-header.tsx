@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import styles from './app-header.module.css';
 import { Link } from 'react-router-dom';
+import clsx from 'clsx';
 import { TAppHeaderUIProps } from './type';
 import {
   BurgerIcon,
@@ -25,12 +26,12 @@ export const AppHeaderUI: FC<TAppHeaderUIProps> = ({ userName }) => (
       <div className={styles.logo}>
         <Logo className='' />
       </div>
-      <div className={styles.link_position_last}>
+      <Link to='/profile' className={clsx(styles.link, styles.link_position_last)}>
         <ProfileIcon type={'primary'} />
         <p className='text text_type_main-default ml-2'>
           {userName || 'Личный кабинет'}
         </p>
-      </div>
+      </Link>
     </nav>
   </header>
 );
