@@ -10,7 +10,7 @@ export interface feedsState {
   totalToday: number;
 }
 
-const initialState: feedsState = {
+export const initialState: feedsState = {
   isLoading: false,
   orders: [],
   error: null,
