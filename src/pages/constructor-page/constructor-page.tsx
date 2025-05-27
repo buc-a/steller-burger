@@ -16,10 +16,11 @@ export const ConstructorPage: FC = () => {
   const isIngredientsLoading = useSelector(getIngredientsStateSelector).isLoading;
   useEffect(()=>{
     dispatch(getIngredientsThunk());
-  }, []);
 
+  }, []);
+  
   return (
-    <>
+    <div >
       {isIngredientsLoading ? (
         <Preloader />
       ) : (
@@ -29,12 +30,12 @@ export const ConstructorPage: FC = () => {
           >
             Соберите бургер
           </h1>
-          <div className={`${styles.main} pl-5 pr-5`}>
+          <div className={`${styles.main} pl-5 pr-5`} data-cy="constructor" >
             <BurgerIngredients />
             <BurgerConstructor />
           </div>
         </main>
       )}
-    </>
+    </div>
   );
 };
